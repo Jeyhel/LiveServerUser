@@ -9,21 +9,13 @@ addEventListener("DOMContentLoaded", async () => {
 
     contain__general.innerHTML = await profiles(info);
     
-    const names = () => {
-        let array = [];
-        for (let i = 0; i < info.length; i++) {
-            array.push(info[i].name_full);
-        }
-        return array;
-    };
-    
     
     Search__bar.addEventListener("input", async e => {
         
         const searchEspecific = e.target.value.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
         
         const filteredProfiles = info.filter(person => {
-            return person.name_full.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchEspecific); 
+            return person.name_full.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchEspecific) || person.description.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().includes(searchEspecific) ; 
         });
         
             contain__general.innerHTML = await profiles(filteredProfiles);
