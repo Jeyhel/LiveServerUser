@@ -1,0 +1,1 @@
+Entre proyecto se incio a través de la imprementacion del html y css. En un principio lista a todos los usuarios, posteriormente permite buscar a personas mediante el nombre y su descripcion, a través de las validaciones.
